@@ -1,3 +1,4 @@
+from lolcode_parser import LOLCodeParser
 
 class LOLCodeTerminal:
     """ Acts as an in-console LOLCode Parser and initerpreter. """
@@ -7,6 +8,7 @@ class LOLCodeTerminal:
     
     def __init__(self):
         """ Do magic Initialization stuffz """
+        self.parser = LOLCodeParser()
         
     def run(self):
         """ Runs the Interactive LOLCode Terminal Session """
@@ -30,5 +32,7 @@ class LOLCodeTerminal:
     
     def validateInput(self, input):
         """ Validates input from the terminal """
+        self.parser.parse(input)
+        print input.upper(), "KTHXBYE"
         if input.upper() == "KTHXBYE":
             self.running = False
