@@ -33,6 +33,6 @@ class LOLCodeTerminal:
     def validateInput(self, input):
         """ Validates input from the terminal """
         self.parser.parse(input)
-        print input.upper(), "KTHXBYE"
         if input.upper() == "KTHXBYE":
             self.running = False
+            
