@@ -30,7 +30,7 @@ class VariableDeclarationStatement:
     
     def getVariableName(self, statementString, type):
         """ Returns the variable name in the given statement string """
-        return statementString.split(type)[1]
+        return statementString.split(type)[1].strip()
     
     def getVariableType(self, statementPieces):
         """ Returns the variable type in the given statement string """

@@ -11,7 +11,8 @@ class LOLCodeParser:
     def parse(self, line):
         """ Parse the line of LOLCode """
         line = line.strip()
-        FindMatchingStatement(line, self.variableTable)
+        if line != "":
+            FindMatchingStatement(line, self.variableTable)
         self.printVariables()
         
     def printVariables(self):
