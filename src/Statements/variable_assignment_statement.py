@@ -2,8 +2,8 @@ from Variables.variable import Variable
 
 import re
 
-class VariableDeclarationStatement:
-    """ Represents the Variable Declaration Statement """
+class VariableAssignmentStatement:
+    """ Represents the Variable Assignment Statement """
     types = ["INT"]
     
     def __init__(self):
@@ -12,21 +12,15 @@ class VariableDeclarationStatement:
     def isValidStatement(self, statementString, variables):
         """ Returns if the string is a valid statement """
         # May want this to throw an exception if the statement looks almost proper, but fails for some reason
-        validStatement = re.match(r"I HAZ .+? .+", statementString)
+        validStatement = re.match(r".+, I HAVE .+? TO PUT IN YOU", statementString)
         
         if validStatement:
-            self.addVariableToVariableList(statementString, variables)
+            """ """
+            #self.addVariableToVariableList(statementString, variables)
         return validStatement
         
     def toCCode(self):
         """ Translates the statement to C Code """
-        
-    def addVariableToVariableList(self, statementString, variables):
-        """ Returns the variable name in the given statement string """
-        statementPieces = statementString.split()
-        type = self.getVariableType(statementPieces)
-        name = self.getVariableName(statementString, type)
-        variables.append(Variable(name, type))
     
     def getVariableName(self, statementString, type):
         """ Returns the variable name in the given statement string """
