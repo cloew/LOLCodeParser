@@ -9,24 +9,24 @@ class VariableDeclarationStatement:
     def __init__(self):
         """  """
         
-    def isValidStatement(self, statementString, variables):
+    def isValidStatement(self, statementString, variableTable):
         """ Returns if the string is a valid statement """
         # May want this to throw an exception if the statement looks almost proper, but fails for some reason
         validStatement = re.match(r"I HAZ .+? .+", statementString)
         
         if validStatement:
-            self.addVariableToVariableList(statementString, variables)
+            self.addVariableToVariableList(statementString, variableTable)
         return validStatement
         
     def toCCode(self):
         """ Translates the statement to C Code """
         
-    def addVariableToVariableList(self, statementString, variables):
+    def addVariableToVariableList(self, statementString, variableTable):
         """ Returns the variable name in the given statement string """
         statementPieces = statementString.split()
         type = self.getVariableType(statementPieces)
         name = self.getVariableName(statementString, type)
-        variables.append(Variable(name, type))
+        variableTable.addVariable(Variable(name, type))
     
     def getVariableName(self, statementString, type):
         """ Returns the variable name in the given statement string """

@@ -9,26 +9,25 @@ class VariableAssignmentStatement:
     def __init__(self):
         """  """
         
-    def isValidStatement(self, statementString, variables):
+    def isValidStatement(self, statementString, variableTable):
         """ Returns if the string is a valid statement """
         # May want this to throw an exception if the statement looks almost proper, but fails for some reason
         validStatement = re.match(r".+, I HAVE .+? TO PUT IN YOU", statementString)
         
         if validStatement:
-            """ """
-            #self.addVariableToVariableList(statementString, variables)
+            self.checkValidVariable(statementString, variableTable)
         return validStatement
         
     def toCCode(self):
         """ Translates the statement to C Code """
+        
+    def checkValidVariable(self, statementString, variableTable):
+        """ Checks if the variable in the statement is a valid variable """
+        variableName = self.getVariableName(statementString)
+        variable = variableTable.getVariableWithName(variableName)
+        if variable is None:
+            print variableName, "is not a recognized variable"
     
-    def getVariableName(self, statementString, type):
+    def getVariableName(self, statementString):
         """ Returns the variable name in the given statement string """
-        return statementString.split(type)[1]
-    
-    def getVariableType(self, statementPieces):
-        """ Returns the variable type in the given statement string """
-        for type in VariableDeclarationStatement.types:
-            if type in statementPieces:
-                return type
-        # Should throw an exception if it does not have a valid type
+        return statementString.split(",")[0]

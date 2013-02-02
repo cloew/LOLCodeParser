@@ -8,11 +8,11 @@ __statementClasses = [ProgramEntryStatement,
                       VariableAssignmentStatement,
                       VariableDeclarationStatement]
 
-def FindMatchingStatement(statementString, variables):
+def FindMatchingStatement(statementString, variableTable):
     """ Find a statement that matches a statement string """
     for statementClass in __statementClasses:
         statement = statementClass()
-        if statement.isValidStatement(statementString, variables):
+        if statement.isValidStatement(statementString, variableTable):
             print "Valid Statement"
             break
     else:
