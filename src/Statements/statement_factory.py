@@ -1,12 +1,9 @@
-from Statements.program_entry_statement import ProgramEntryStatement
-from Statements.program_exit_statement import ProgramExitStatement
-from Statements.variable_assignment_statement import VariableAssignmentStatement
-from Statements.variable_declaration_statement import VariableDeclarationStatement
+# from Statements.program_entry_statement import ProgramEntryStatement
+# from Statements.program_exit_statement import ProgramExitStatement
+# from Statements.variable_assignment_statement import VariableAssignmentStatement
+# from Statements.variable_declaration_statement import VariableDeclarationStatement
 
-__statementClasses = [ProgramEntryStatement,
-                      ProgramExitStatement,
-                      VariableAssignmentStatement,
-                      VariableDeclarationStatement]
+__statementClasses = []
 
 def FindMatchingStatement(statementString, variableTable):
     """ Find a statement that matches a statement string """

@@ -1,3 +1,4 @@
+from Statements.statement_factory import __statementClasses
 
 class ProgramEntryStatement:
     """ Represents the Program Entry Statement """
@@ -13,3 +14,5 @@ class ProgramEntryStatement:
     def toCCode(self):
         """ Translates the statement to C Code """
         return "int main()\n{\n"
+        
+__statementClasses.append(ProgramEntryStatement) # Register with the Statement Factory

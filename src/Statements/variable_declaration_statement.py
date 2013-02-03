@@ -1,3 +1,4 @@
+from Statements.statement_factory import __statementClasses
 from Variables.variable import Variable
 
 import re
@@ -40,3 +41,5 @@ class VariableDeclarationStatement:
             if type in statementPieces:
                 return type
         # Should throw an exception if it does not have a valid type
+        
+__statementClasses.append(VariableDeclarationStatement) # Register with the Statement Factory

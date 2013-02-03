@@ -1,3 +1,4 @@
+from Statements.statement_factory import __statementClasses
 from Variables.variable import Variable
 
 import re
@@ -40,3 +41,5 @@ class VariableAssignmentStatement:
     def getVariableName(self, statementString):
         """ Returns the variable name in the given statement string """
         return statementString.split(",")[0]
+        
+__statementClasses.append(VariableAssignmentStatement) # Register with the Statement Factory
