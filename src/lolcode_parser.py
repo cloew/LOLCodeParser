@@ -18,6 +18,13 @@ class LOLCodeParser:
                 self.statements.append(statement)
         self.printVariables()
         
+    def getCCodeLines(self):
+        """ Return the C Code lines of the Parser's Statements """
+        cCodeLines = []
+        for statement in self.statements:
+            cCodeLines.append(statement.toCCode())
+        return cCodeLines
+        
     def printVariables(self):
         """ Print variables """
         for variable in self.variableTable.variables:
