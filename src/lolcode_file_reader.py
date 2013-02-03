@@ -9,11 +9,17 @@ class LOLCodeFileReader:
         
     def parseFile(self, filename):
         """ Parse the given file """
-        file = self.openFile(filename)
-        for line in file.readlines():
+        inputFile = self.openLOLCodeFile(filename)
+        for line in inputFile.readlines():
             self.parser.parse(line)
-        # Generate Output File
+        self.generateOutputFile()
         
-    def openFile(self, filename):
+    def generateOutputFile(self):
+        """ Generate Output File """
+        cCodeLines = self.parser.getCCodeLines()
+        outputFile = open("out.c", 'w')
+        outputFile.writelines(cCodeLines)
+        
+    def openLOLCodeFile(self, filename):
         """ Return the opened file """
         return open(filename, 'r')

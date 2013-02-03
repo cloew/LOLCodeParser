@@ -12,3 +12,4 @@ class ProgramExitStatement:
         
     def toCCode(self):
         """ Translates the statement to C Code """
+        return ""
