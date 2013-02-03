@@ -26,7 +26,8 @@ class VariableDeclarationStatement:
         statementPieces = statementString.split()
         type = self.getVariableType(statementPieces)
         name = self.getVariableName(statementString, type)
-        variableTable.addVariable(Variable(name, type))
+        self.variable = Variable(name, type)
+        variableTable.addVariable(self.variable)
     
     def getVariableName(self, statementString, type):
         """ Returns the variable name in the given statement string """
