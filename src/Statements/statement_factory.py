@@ -14,6 +14,8 @@ def FindMatchingStatement(statementString, variableTable):
         statement = statementClass()
         if statement.isValidStatement(statementString, variableTable):
             print "Valid Statement"
+            return statement
             break
     else:
         print "No matching Statement"
+        return None

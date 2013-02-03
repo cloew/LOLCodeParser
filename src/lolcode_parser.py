@@ -7,13 +7,17 @@ class LOLCodeParser:
     def __init__(self):
         """ Construct the LOLCodeParser """
         self.variableTable = VariableTable()
+        self.statements = []
     
     def parse(self, line):
         """ Parse the line of LOLCode """
         line = line.strip()
         if line != "":
-            FindMatchingStatement(line, self.variableTable)
+            statement = FindMatchingStatement(line, self.variableTable)
+            if statement is not None:
+                self.statements.append(statement)
         self.printVariables()
+        print self.statements
         
     def printVariables(self):
         """ Print variables """
