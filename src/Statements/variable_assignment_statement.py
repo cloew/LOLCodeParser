@@ -22,7 +22,7 @@ class VariableAssignmentStatement:
         
     def toCCode(self):
         """ Translates the statement to C Code """
-        return ""
+        return "{0} = {1};\n".format(self.variable.name, self.value)
         
     def checkValidVariable(self, statementString, variableTable):
         """ Checks if the variable in the statement is a valid variable """
