@@ -16,6 +16,7 @@ class VariableAssignmentStatement:
         
         if validStatement:
             self.checkValidVariable(statementString, variableTable)
+            self.checkValidValue(statementString)
         return validStatement
         
     def toCCode(self):
@@ -24,9 +25,15 @@ class VariableAssignmentStatement:
     def checkValidVariable(self, statementString, variableTable):
         """ Checks if the variable in the statement is a valid variable """
         variableName = self.getVariableName(statementString)
-        variable = variableTable.getVariableWithName(variableName)
-        if variable is None:
+        self.variable = variableTable.getVariableWithName(variableName)
+        if self.variable is None:
             print variableName, "is not a recognized variable"
+            
+    def checkValidValue(self, statementString):
+        """ Checks if the value is a valid value """
+         valueHalf = statementString.split(", I HAVE ")[1]
+         self.value = valueHalf.split(" TO PUT IN YOU")[0].strip()
+         # Should check if the value is a proper value for the variable type
     
     def getVariableName(self, statementString):
         """ Returns the variable name in the given statement string """

@@ -17,7 +17,6 @@ class LOLCodeParser:
             if statement is not None:
                 self.statements.append(statement)
         self.printVariables()
-        print self.statements
         
     def printVariables(self):
         """ Print variables """
