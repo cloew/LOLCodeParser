@@ -20,6 +20,8 @@ class VariableDeclarationStatement:
         
     def toCCode(self):
         """ Translates the statement to C Code """
+		return "{0} {1};\n".format(self.variable.type.lower(), self.varable.name)
+		    
         
     def addVariableToVariableList(self, statementString, variableTable):
         """ Returns the variable name in the given statement string """
