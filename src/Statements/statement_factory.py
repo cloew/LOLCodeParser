@@ -2,7 +2,7 @@
 # from Statements.program_exit_statement import ProgramExitStatement
 # from Statements.variable_assignment_statement import VariableAssignmentStatement
 # from Statements.variable_declaration_statement import VariableDeclarationStatement
-
+#from Statements.variable_increment_statement import VariableIncrementStatment
 __statementClasses = []
 
 def FindMatchingStatement(statementString, variableTable):
