@@ -1,3 +1,4 @@
+from Statements.statement_factory import __statementClasses
 from Variables.variable import Variable
 
 import re
@@ -14,9 +15,9 @@ class VariableIncrementStatment:
         
         if not validStatement: #Maybe increase by 1
             validStatement = re.match(r".+, IM UPPIN YA", statementString)
-            self.increment = False
-        else:
             self.increment = True
+        else:
+            self.increment = False
         
         if validStatement:
             self.checkValidVariable(statementString, variableTable)
@@ -47,3 +48,5 @@ class VariableIncrementStatment:
     def getVariableName(self, statementString):
         """ Return the variable name in the given statment"""
         return statementString.split(",")[0]
+        
+__statementClasses.append(VariableIncrementStatment) # Register with the Statement Factory
