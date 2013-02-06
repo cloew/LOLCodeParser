@@ -27,9 +27,9 @@ class VariableIncrementStatment:
     
     def toCCode(self):
         if self.increment:
-            return "{0}++".format(self.variable.name)
+            return "{0}++;\n".format(self.variable.name)
         else:
-            return "{0} += {1}".format(self.variable.name, self.value)
+            return "{0} += {1};\n".format(self.variable.name, self.value)
         
     def checkValidVariable(self, statementString, variableTable):
         """ Checks if the variable in the statement is a valid variable """
