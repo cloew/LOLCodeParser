@@ -12,7 +12,7 @@ class LOLCodeParser:
     
     def parse(self, line):
         """ Parse the line of LOLCode """
-        line = line.strip()
+        line = self.removeCommentFromLine(line)
         if line != "":
             statement = FindMatchingStatement(line, self.variableTable)
             if statement is not None:
@@ -25,6 +25,10 @@ class LOLCodeParser:
         for statement in self.statements:
             cCodeLines.append(statement.toCCode())
         return cCodeLines
+        
+    def removeCommentFromLine(self, line):
+        """ Removes comments from the given line and returns it """
+        return line.split("BTW")[0].strip()
         
     def printVariables(self):
         """ Print variables """
