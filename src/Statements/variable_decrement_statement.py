@@ -4,7 +4,7 @@ from Variables.variable import Variable
 import re
 
 class VariableDecrementStatment:
-    """ Increments a Variable by a given number or 1 by defult"""
+    """ Decrements a Variable by a given number or 1 by defult"""
     
     def __init__(self):
         """ """
@@ -13,7 +13,7 @@ class VariableDecrementStatment:
         """ Returns if the string is a valid statement """
         validStatement = re.match(r".+, IM SHRINKIN YA BY .+", statementString)
         
-        if not validStatement: #Maybe increase by 1
+        if not validStatement: #Maybe decreased by 1
             validStatement = re.match(r".+, IM SHRINKIN YA", statementString)
             self.decrement = True
         else:
